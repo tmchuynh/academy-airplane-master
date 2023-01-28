@@ -1,9 +1,9 @@
 var playerStyle = {
     left: 450,
-    top: 820
+    top: 625
 }
 
-var playerStyleTop = 820, playerStyleLeft = 450;
+var playerStyleTop = 625, playerStyleLeft = 450;
 
 var enemiesStyle = [
     { left: 450, top: 200 }, 
@@ -19,9 +19,9 @@ function drawPlayer () {
 
     var player = document.createElement("div");
     player.setAttribute("class", "player");
-    player.style.left = playerStyle.left;
-    player.style.top = playerStyle.top;
-    console.log(playerStyle.top);
+    player.style.left = playerStyleLeft;
+    player.style.top = playerStyleTop;
+    console.log(player.style.top);
 
     players.appendChild(player);
 }

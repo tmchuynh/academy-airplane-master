@@ -9,11 +9,14 @@
   height: 75px;
   position: absolute;
   background-image: url("../imgs/player.png");
-  z-index: 2; }
+  z-index: 2;
+  top: 625px;
+  left: 450px; }
 
 .enemies .enemy {
   position: absolute;
   background-image: url("../imgs/enemy.png");
   width: 70px;
   height: 75px;
-  z-index: 2; }
+  z-index: 2;
+  top: 100px; }
