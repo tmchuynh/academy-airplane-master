@@ -29,7 +29,6 @@ function drawEnemies() {
     enemies.style.top = "100px";
     enemiesStyleTop = enemies.style.top.replace("px", "")
 
-    console.log(enemiesStyle.length)
     for (var i = 0; i < enemiesStyle.length; i++) {
         var battle = document.createElement("div");
         battle.setAttribute("class", "enemy");
@@ -37,9 +36,6 @@ function drawEnemies() {
         battle.style.top = enemies.style.top;
         enemies.appendChild(battle);
     }
-
-    console.log(enemies.style)
-
 }
 
 var arr = document.querySelectorAll(".enemy");
@@ -59,11 +55,7 @@ function step() {
 
 }
 
-
-
 step();
-
-
 
 function update() {
     playerItem[0].style.left = playerStyleLeft;
@@ -72,21 +64,12 @@ function update() {
 }
 
 document.onkeydown = function (e) {
-    // console.log(e.keyCode);
     if (e.keyCode = 37) { // LEFT
-
         playerStyleLeft = (parseInt(playerStyle.left) - 10) + "px";
     }
     if (e.keyCode == 39) { // RIGHT
-
-        // console.log("right key");
         playerStyleLeft = (parseInt(playerStyle.left) + 10) + "px";
     }
     update();
-    // console.log(playerStyle.left);
-    // console.log(playerItem[0].style.left)
+
 }
-
-
-
-// console.log(document.getElementsByClassName("ocean"))
