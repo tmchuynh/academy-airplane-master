@@ -5,43 +5,65 @@ var playerStyle = {
 
 var playerStyleTop = 625, playerStyleLeft = 450;
 
-var enemiesStyle = [
-    { left: 450, top: 200 }, 
-    { left: 350, top: 250 }
-]
+var enemiesStyleTop = 100, enemiesStyleLeft;
+
+var enemiesStyle = [50, 150, 250, 350, 450, 550, 650, 750]
 
 var players = document.querySelector(".players");
 var enemies = document.querySelector(".enemies");
 var playerItem = document.getElementsByClassName("player");
 
-function drawPlayer () {
-    // content = "<div class='player' style='left:" + player.left + "px; top: " + player.top + "px" + "></div>";
+drawPlayer();
+drawEnemies();
 
+function drawPlayer() {
     var player = document.createElement("div");
     player.setAttribute("class", "player");
     player.style.left = playerStyleLeft;
     player.style.top = playerStyleTop;
-    console.log(player.style.top);
 
     players.appendChild(player);
 }
 
 function drawEnemies() {
-    content = "";
-    for (var i = 0; i < enemies.length; i++) {
-        // content += "<div class='enemy' style='left:" + player.left + "px; top: " + player.top + "px'></div>";
+    enemies.style.top = "100px";
+    enemiesStyleTop = enemies.style.top.replace("px", "")
 
-        var enemy = document.createElement("div");
-        enemy.setAttribute("class", "enemy");
-        enemy.style.left = enemiesStyle[i].left;
-        enemy.style.top = enemiesStyle[i].top;
-        enemies.appendChild(enemy);
-
+    console.log(enemiesStyle.length)
+    for (var i = 0; i < enemiesStyle.length; i++) {
+        var battle = document.createElement("div");
+        battle.setAttribute("class", "enemy");
+        battle.style.left = enemiesStyle[i] + "px";
+        battle.style.top = enemies.style.top;
+        enemies.appendChild(battle);
     }
 
-    console.log(enemies)
+    console.log(enemies.style)
 
 }
+
+var arr = document.querySelectorAll(".enemy");
+var i = 36;
+
+function step() {
+
+    for (j = 0; j < arr.length; j++) {
+        enemiesStyleTop = (i) + "px";
+        arr[j].style.top = enemiesStyleTop;
+        console.log(enemiesStyleTop);
+    }
+    i = i + 10;
+    if (i <= 638) {
+        setTimeout(step, 3000);
+    }
+
+}
+
+
+
+step();
+
+
 
 function update() {
     playerItem[0].style.left = playerStyleLeft;
@@ -49,21 +71,22 @@ function update() {
     playerStyle.left = playerItem[0].style.left.replace("px", "");
 }
 
-document.onkeydown = function(e) {
-    console.log(e.keyCode);
-    if(e.keyCode = 37) { // LEFT
+document.onkeydown = function (e) {
+    // console.log(e.keyCode);
+    if (e.keyCode = 37) { // LEFT
+
         playerStyleLeft = (parseInt(playerStyle.left) - 10) + "px";
     }
-    if(e.keyCode == 39) { // RIGHT
-        console.log("right key");
+    if (e.keyCode == 39) { // RIGHT
+
+        // console.log("right key");
         playerStyleLeft = (parseInt(playerStyle.left) + 10) + "px";
     }
     update();
-    console.log(playerStyle.left);
-    console.log(playerItem[0].style.left)
+    // console.log(playerStyle.left);
+    // console.log(playerItem[0].style.left)
 }
 
-drawPlayer();
-drawEnemies();
 
-console.log(document.getElementsByClassName("ocean"))
+
+// console.log(document.getElementsByClassName("ocean"))
